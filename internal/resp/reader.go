@@ -22,12 +22,7 @@ func NewReader(rd io.Reader) *Reader {
 	return &Reader{reader: bufio.NewReader(rd)}
 }
 
-// Read parses the next complete RESP Value from the stream.
-//
-// Professor's Note:
-// RESP is a binary-safe protocol because Bulk Strings are length-prefixed.
-// Unlike C-strings which terminate at \0, RESP can carry arbitrary binary blobs,
-// compressed images, or serialized objects without byte escaping.
+// Read parses the next complete RESP value from the underlying stream.
 func (r *Reader) Read() (Value, error) {
 	typeByte, err := r.reader.ReadByte()
 	if err != nil {

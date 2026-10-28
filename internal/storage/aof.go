@@ -56,11 +56,7 @@ func (a *AOF) WriteCommand(cmd string, args ...string) error {
 	return err
 }
 
-// Replay reads the log file from byte 0 and re-executes all persisted mutations into memory.
-//
-// Professor's Note:
-// This is the core of Crash Recovery. In distributed systems, this is the WAL (Write Ahead Log)
-// replay phase that brings state machine replicas into alignment with the committed log.
+// Replay reads the log file and restores persisted state into memory.
 func (a *AOF) Replay(store *Store) error {
 	a.mu.Lock()
 	defer a.mu.Unlock()

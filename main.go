@@ -34,11 +34,8 @@ func main() {
 	}
 	defer listener.Close()
 
-	fmt.Printf("\n⚡ [nano-redis] In-Memory Store listening on port %d\n", *port)
-	fmt.Printf("💾 [nano-redis] AOF Durability Log: %s\n", *aofPath)
-	fmt.Printf("🔌 [nano-redis] Connect via official CLI: redis-cli -p %d\n\n", *port)
+	log.Printf("nano-redis server listening on %s (aof=%s)", addr, *aofPath)
 
-	// 3. Connection Accept Loop
 	for {
 		conn, err := listener.Accept()
 		if err != nil {
