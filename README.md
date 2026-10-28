@@ -57,7 +57,7 @@ A high-throughput, concurrent **In-Memory Key-Value Store** built from first pri
 ### 1. Build and Run
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/nano-redis.git
+git clone https://github.com/pranav2020-pixel/nano-redis.git
 cd nano-redis
 
 # Run the server on port 6379
@@ -85,7 +85,7 @@ go test -v ./...
 
 ---
 
-## Core CS Concepts Mastered
+## Core CS Concepts Used
 
 1. **Binary-Safe Wire Protocols:** Length-prefixed bulk string decoding vs null-terminated string parsing.
 2. **Readers-Writer Synchronization:** Using `sync.RWMutex` to maximize concurrent read throughput while serializing write operations.
